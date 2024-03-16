@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criminal Identification System</title>
+</head>
+<body>
+    <h1>Criminal Identification System</h1>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    <div>
+        <a href="{{ url_for('register') }}">Register Criminal</a>
+        <a href="{{ url_for('detect') }}">Detect Criminal</a>
+        <a href="{{ url_for('surveillance') }}">Video Surveillance</a>
+    </div>
+</body>
+</html>
