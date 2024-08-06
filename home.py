@@ -92,7 +92,23 @@ def basicPageSetup(pageNo):
     content.grid_rowconfigure(0, weight=1)
 
 
+def calculate_img_size(frame):
+    img_size = (frame.shape[0] + frame.shape[1]) // 2  # Example calculation
+    if img_size <= 0:
+        print(f"Invalid img_size value detected: {img_size}. Setting to default value of 100.")
+        img_size = 100
+    return img_size
+
+
 def showImage(frame, img_size):
+    print(f"frame shape: {frame.shape if frame is not None else 'None'}, img_size: {img_size}")
+    if frame is None or frame.size == 0:
+        raise ValueError("Invalid frame size")
+    if img_size <= 0:
+        raise ValueError("img_size must be a positive integer")
+    img = cv2.resize(frame, (img_size, img_size))
+    # Further processing
+
     global img_label, left_frame
     img = cv2.resize(frame, (img_size, img_size))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
